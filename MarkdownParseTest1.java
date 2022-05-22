@@ -106,7 +106,7 @@ public class MarkdownParseTest1 {
         Path fileName = Path.of("test-file8v2.md");
         String content = Files.readString(fileName);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("a link on the first line");
+        expected.add("alinkonthefirstline");
         assertEquals(expected, MarkdownParse1.getLinks(content));
     }
 
@@ -129,6 +129,17 @@ public class MarkdownParseTest1 {
         expected.add("a.com");
         expected.add("a.com(()))");
         expected.add("example.com");
+        assertEquals(expected, MarkdownParse1.getLinks(content));
+    }
+
+    @Test
+    public void getLinks15() throws IOException {
+        Path fileName = Path.of("test-file-for-lab-3.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("https://twitter.com");
+        expected.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
+        expected.add("https://cse.ucsd.edu/");
         assertEquals(expected, MarkdownParse1.getLinks(content));
     }
 }

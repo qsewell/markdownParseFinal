@@ -20,10 +20,10 @@ public class MarkdownParse1 {
             if(openBracket != -1 && closeBracket != -1 && openParen != -1 && closeParen != -1) {      
                 try {
                     if(!(markdown.substring(openBracket - 1, openBracket).equals("!")) && markdown.substring(closeBracket, openParen).length() == 1) {      
-                        toReturn.add(markdown.substring(openParen + 1, closeParen));
+                        toReturn.add((markdown.substring(openParen + 1, closeParen)).replaceAll("\\s", ""));
                     }
                 } catch(Exception e) {     
-                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                    toReturn.add((markdown.substring(openParen + 1, closeParen)).replaceAll("\\s", ""));
                 }
             }
             currentIndex = closeParen + 1;
