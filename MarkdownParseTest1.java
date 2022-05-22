@@ -120,4 +120,15 @@ public class MarkdownParseTest1 {
         expected.add("ucsd.edu");
         assertEquals(expected, MarkdownParse1.getLinks(content));
     }
+
+    @Test
+    public void getLinks14() throws IOException {
+        Path fileName = Path.of("test-file-for-lab-2.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a.com");
+        expected.add("a.com(()))");
+        expected.add("example.com");
+        assertEquals(expected, MarkdownParse1.getLinks(content));
+    }
 }
